@@ -23,4 +23,24 @@ validator.isValid = (schema, data) => {
     return valid;
 };
 
-console.log(validator.isObject({}));
+const personRules = {
+    fields: {
+        id: { type: 'string', required: true },
+        name: { type: 'string', required: true },
+        age: { type: 'number', required: true },
+        children: { type: 'array', valueType: 'string' },
+    },
+};
+const ayman = {
+    id: '123-45-6789',
+    name: 'ayman McDeveloperson',
+    age: 37,
+    children: [],
+};
+const ahmad = {
+    id: 38,
+    name: 'ahmad McCoder',
+    children: [],
+};
+console.log(validator.isValid(personRules, ayman))
+console.log(validator.isValid(personRules, ahmad))
